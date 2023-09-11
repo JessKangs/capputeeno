@@ -1,21 +1,45 @@
 import styled from 'styled-components'
+import { Saira_Stencil_One } from 'next/font/google'
 
-const Container = styled.div`
-  padding: 0 0.5rem;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  min-height: 100vh;
+const sairaStencilOne = Saira_Stencil_One({
+  weight: "400",
+  style: "normal",
+  subsets: ['latin']
+
+})
+
+const Header = styled.header`
+    background-color: white;
+    height: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 100px 0 100px;
+
+    h1 {
+      font-family: ${sairaStencilOne.style.fontFamily};
+      font-size: 25px;
+      margin: 0%;
+    }
+
+    input {
+      margin: 0%;
+      width: 200px;
+      height: 26px;
+      border: 0;
+      border-radius: 4px;
+      background-color: whitesmoke;
+      padding: 5px;
+    }
+    input::placeholder {
+      font-size: 10px;
+    }
 `
+
+
 const Main = styled.main`
-  padding: 5rem 0;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+ 
 `
 
 const Title = styled.h1`
@@ -51,4 +75,4 @@ const CodeTag = styled.code`
     Bitstream Vera Sans Mono, Courier New, monospace;
 `
 
-export { Container, Main, Title, Description, CodeTag }
+export { Header, Main, Title, Description, CodeTag }

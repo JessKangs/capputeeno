@@ -1,6 +1,7 @@
 import type { AppProps } from 'next/app'
 import { ThemeProvider, DefaultTheme } from 'styled-components'
 import GlobalStyle from '../components/globalstyles'
+import { Saira_Stencil_One } from 'next/font/google'
 
 const theme: DefaultTheme = {
   colors: {
