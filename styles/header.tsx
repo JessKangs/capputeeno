@@ -17,6 +17,7 @@ const Header = styled.header`
     align-items: center;
     justify-content: space-between;
     padding: 0 100px 0 100px;
+    position: fixed;
 
     h1 {
       font-family: ${sairaStencilOne.style.fontFamily};
@@ -66,8 +67,7 @@ const Cart = styled.div`
   align-items: center;
 
   img {
-    position: fixed;
-    right: 70px;
+    margin-left: 20px;
     height: 18px;
     width: 18px;
   }
