@@ -1,7 +1,5 @@
 import { useRouter } from "next/router";
 
-// import Image from "next/image";
-
 export default function Product ({id, image, title, price}) {
     const router = useRouter()
 

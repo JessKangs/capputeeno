@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { Saira_Stencil_One } from 'next/font/google'
-import Image from 'next/image'
 
 const sairaStencilOne = Saira_Stencil_One({
   weight: "400",
@@ -15,7 +14,6 @@ const Header = styled.header`
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     padding: 0 100px 0 100px;
     position: fixed;
 
@@ -26,7 +24,7 @@ const Header = styled.header`
     }
 
     div {
-      width: 220px;
+      width: 210px;
       display: flex;
       align-items: center;
     }
@@ -36,17 +34,18 @@ const Header = styled.header`
 const SearchBar = styled.div`
     display: flex;
     align-items: center;
+    margin-left: 140%;
 
     input {
-      margin: 0%;
-      width: 220px;
-      height: 26px;
+      width: 270px;
+      height: 28px;
       border: 0;
       border-radius: 4px;
       background-color: whitesmoke;
       padding: 8px;
       z-index: 1;
       position: relative;
+  
     }
 
     input::placeholder {
@@ -58,7 +57,7 @@ const SearchBar = styled.div`
       width: 18px;
       z-index: 2;
       position: absolute;
-      right: 105px;
+      right: 150px;
     }
 `;
 

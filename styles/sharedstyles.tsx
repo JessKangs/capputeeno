@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 
 const Main = styled.main`
-  padding: 80px 100px 20px 100px;
- 
+  padding: 80px 100px 80px 100px;
 `
 
 const Title = styled.h1`
