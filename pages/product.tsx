@@ -1,15 +1,35 @@
 import { useRouter } from "next/router"
 import { Back, Content, Description, AddToCart } from "../styles/productPage"
 import { Main } from "../styles/sharedstyles";
-import { baseProducts } from "../provisoryApi";
+import { useQuery, gql } from '@apollo/client'
 import shopBag from "../public/shopping-bag.svg"
 import back from "../public/Group.svg"
 import Image from "next/image";
 
 export default function product () {
     const router = useRouter();
-    const id = Number(router.query.id)
-    const item = baseProducts.filter((value, index) => value.id === id)[0]
+    const id = router.query.id
+
+    const GET_CATEGORIES = gql`
+    query getProductsByCategory {
+        allProducts{
+            id
+            name
+            image_url
+            description
+            category
+            price_in_cents
+        }
+    }  
+`;
+
+    const { loading, error, data } = useQuery(GET_CATEGORIES);
+
+    let item = undefined;
+
+    if(data !== undefined) {
+        item = data.allProducts.filter((value, index) => value.id === id)[0]
+    }
     
     return (
         <Main>
@@ -17,7 +37,7 @@ export default function product () {
                 <Image src={back} alt="back"/>
                 Voltar
             </Back>
-            {item != undefined ?
+            {item !== undefined ?
             <Content>
                 <img src={item.image_url} alt="" width={400} height={400}/>
                     <Description>
@@ -38,5 +58,6 @@ export default function product () {
             }
         </Main>
     )
+   
 }
 

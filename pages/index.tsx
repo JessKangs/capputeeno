@@ -2,13 +2,39 @@ import Head from 'next/head'
 import { Main } from '../styles/sharedstyles'
 import { Feed } from '../styles/home'
 import Buttons_ from '../components/Buttons'
-import { baseProducts, shirtsCategory, mugsCategory } from '../provisoryApi'
 import Product from '../components/Product'
 import { useState } from 'react'
+import { useQuery, gql } from '@apollo/client'
 
 export default function Home() {
   const [menuSelect, setMenuSelect] = useState(1);
 
+  const GET_CATEGORIES = gql`
+    query getProductsByCategory {
+        allProducts{
+            id
+            name
+            image_url
+            description
+            category
+            price_in_cents
+        }
+    }  
+`;
+    let mugsCategory = [];
+    let shirtsCategory = [];
+    let allProducts = [];
+  
+    const { loading, error, data } = useQuery(GET_CATEGORIES);
+    if ( data !== undefined ) {
+      
+      allProducts = data.allProducts;
+
+      shirtsCategory = allProducts.filter((value, index) => value.category === 't-shirts')
+
+      mugsCategory = allProducts.filter((value, index) => value.category === 'mugs')
+      }
+   
   return (
     <Main>
         <Head>
@@ -22,12 +48,12 @@ export default function Home() {
         <Feed>
           {
             menuSelect === 1 ? 
-            baseProducts.map((value, index) => 
+            allProducts.map((value, index) => 
               <Product
                 id={value.id} 
                 image={value.image_url}
                 title={value.name}
-                price={value.price} 
+                price={value.price_in_cents} 
                 key={index}
                 />
             ) : 
@@ -37,7 +63,7 @@ export default function Home() {
                 id={value.id} 
                 image={value.image_url}
                 title={value.name}
-                price={value.price}
+                price={value.price_in_cents}
                 key={index} 
                 />
             ) :
@@ -46,7 +72,7 @@ export default function Home() {
               id={value.id} 
               image={value.image_url}
               title={value.name}
-              price={value.price}
+              price={value.price_in_cents}
               key={index} 
               />
           )
