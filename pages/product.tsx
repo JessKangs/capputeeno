@@ -32,15 +32,16 @@ export default function product () {
     }
    
     function addCartItem(item) {
-        let items = JSON.parse(localStorage.getItem("cartItem"));
-        if (items != undefined) {
-            cartItems.push(items)
+        let items = JSON.parse(localStorage.getItem("cartItem"))
+
+        if(items ==  undefined) {
+            localStorage.setItem("cartItem", JSON.stringify([item]))
+        } else if (items.length >= 1){
+            items.map((value, index) => cartItems.push(value))
             cartItems.push(item)
-            localStorage.removeItem("cartItem");
-            localStorage.setItem("cartItem", JSON.stringify(cartItems))
-        } else {
-            localStorage.setItem("cartItem", JSON.stringify(item))
-        }
+            localStorage.setItem("cartItem", JSON.stringify(cartItems))  
+        } 
+      
     }
 
     return (

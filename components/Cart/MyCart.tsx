@@ -4,7 +4,8 @@ import Image from "next/image"
 import trashCan from "../../public/Trash, Delete, Bin.svg"
 import { Cart, H3, H4, Item } from "../../styles/cart"
 
-export default function MyCart({router, cartItems, cartTotal, erase}) { console.log(cartItems[0])
+export default function MyCart({router, cartItems, cartTotal, erase}) { 
+    console.log(cartItems)
     return (
     <Cart>
         <Back onClick={() => router.push("/")}>
@@ -18,16 +19,16 @@ export default function MyCart({router, cartItems, cartTotal, erase}) { console.
             <div style={{ display:"flex", alignItems:"center", height: 30}}>
 
                 <H3> 
-                    Total ({typeof cartItems != 'undefined' ? cartItems[0].length : 0} produtos)
+                    Total ({typeof cartItems != 'undefined' ? cartItems.length : 0} produtos)
                 </H3>
 
                 <H4> R${(cartTotal/100).toFixed(2)}</H4>
 
             </div>
 
-                { cartItems[0] !== null ?
+                { cartItems !== null ?
 
-                    cartItems[0].map((item, index) => 
+                    cartItems.map((item, index) => 
 
                         <Item key={index}>
                             <img src={item.image_url} alt="product image" width={50} height={50}/>

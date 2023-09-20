@@ -5,28 +5,24 @@ import MyCart from "../components/Cart/MyCart";
 
 export default function Cart_ () {
     const router = useRouter();
-    let cartItems = [];
+    let cartItems;
     let cartTotal = 0;
 
     if(typeof window !== 'undefined') {
-        cartItems.push(JSON.parse(localStorage.getItem("cartItem")))
+       cartItems = JSON.parse(localStorage.getItem("cartItem"))
+    }
+    
+    if(cartItems !== null) {
+        cartItems.map((value) => cartTotal += value.price_in_cents)
     }
 
-    if(cartItems[0] !== null) {
-        cartItems[0].map((value) => cartTotal += value.price_in_cents)
-    }
-
-    function erase ({index}) {
+    function erase (index) {
         cartItems.splice(index, 1)
-
-        if (cartItems.length === 0) {
-            localStorage.removeItem("cartItem")
-        } else {
-            localStorage.removeItem("cartItem")
-            localStorage.setItem("cartItem", JSON.stringify(cartItems))
-        }
         
+        localStorage.removeItem("cartItem")
+        localStorage.setItem("cartItem", JSON.stringify(cartItems))
     }
+
 
     return (
         <Content>
