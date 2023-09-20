@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import { Main } from '../styles/sharedstyles'
 import { Feed } from '../styles/home'
-import Buttons_ from '../components/Buttons'
-import Product from '../components/Product'
+import Buttons_ from '../components/Home/Buttons'
+import Product from '../components/Home/Product'
 import { useState } from 'react'
 import { useQuery, gql } from '@apollo/client'
 

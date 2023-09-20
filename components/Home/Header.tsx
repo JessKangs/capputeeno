@@ -1,7 +1,7 @@
-import { Header, SearchBar, Cart } from "../styles/header";
+import { Header, SearchBar, Cart } from "../../styles/header";
 import Image from "next/image"
-import search from "../public/search-loupe.svg"
-import shopBag from "../public/shopping-bagshopping_bag.svg"
+import search from "../../public/search-loupe.svg"
+import shopBag from "../../public/shopping-bagshopping_bag.svg"
 import { useRouter } from "next/router";
 
 export default function Header_() {

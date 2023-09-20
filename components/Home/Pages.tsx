@@ -1,7 +1,7 @@
-import { Layout, PageNum } from "../styles/home";
+import { Layout, PageNum } from "../../styles/home";
 import Image from "next/image";
-import LeftArrow from "../public/Arrows, Diagrams/LeftArrow.svg";
-import RightArrow from "../public/Arrows, Diagrams/RightArrow.svg"
+import LeftArrow from "../../public/Arrows, Diagrams/LeftArrow.svg";
+import RightArrow from "../../public/Arrows, Diagrams/RightArrow.svg"
 
 export default function Pages () {
     return (

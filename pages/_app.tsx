@@ -1,7 +1,7 @@
 import type { AppProps } from 'next/app'
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
 import GlobalStyle from '../styles/globalstyles'
-import Header_ from '../components/Header'
+import Header_ from '../components/Home/Header'
 
 
 export default function App({ Component, pageProps }: AppProps) {

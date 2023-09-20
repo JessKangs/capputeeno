@@ -1,32 +1,49 @@
-import { Back } from "../styles/productPage"
-import back from "../public/Group.svg"
-import Image from "next/image"
+
 import { useRouter } from "next/router"
-import { Content, Cart, Item, Order } from "../styles/cart"
-import { baseProducts } from "../provisoryApi";
+import { Content, Order } from "../styles/cart"
+import MyCart from "../components/Cart/MyCart";
 
 export default function Cart_ () {
     const router = useRouter();
-    const item = baseProducts[0]
+    let cartItems = [];
+    let cartTotal = 0;
+
+    if(typeof window !== 'undefined') {
+        cartItems.push(JSON.parse(localStorage.getItem("cartItem")))
+    }
+
+    if(cartItems[0] !== null) {
+        cartItems[0].map((value) => cartTotal += value.price_in_cents)
+    }
+
+    function erase ({index}) {
+        cartItems.splice(index, 1)
+
+        if (cartItems.length === 0) {
+            localStorage.removeItem("cartItem")
+        } else {
+            localStorage.removeItem("cartItem")
+            localStorage.setItem("cartItem", JSON.stringify(cartItems))
+        }
+        
+    }
 
     return (
         <Content>
-            <Cart>
-                <Back onClick={() => router.push("/")}>
-                    <Image src={back} alt="back"/>
-                    Voltar
-                </Back>
-                <h2>SEU CARRINHO</h2>
-                <h3>Total {} produtos</h3>
-
-                <Item>
-                    <img src={item.image_url} alt="product image" width={50} height={50}/>
-                    <h2>{item.name}</h2>
-                    <h3>{item.description}</h3>
-                </Item>
-            </Cart>
+            <MyCart 
+                router={router} 
+                cartItems={cartItems} 
+                cartTotal={cartTotal}
+                erase={erase}
+                />
+            
             <Order>
-                one
+                <h1>RESUMO DO PEDIDO</h1>
+                <h2>Subtotal de produtos R${null}</h2>
+                <h2>Entrega R$40,00</h2>
+                <span></span>
+                <h3>Total R${null}</h3>
+                <button>FINALIZAR A COMPRA</button>
             </Order>
         </Content>
     )

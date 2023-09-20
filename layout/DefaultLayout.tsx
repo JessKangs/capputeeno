@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-import Header_ from "../components/Header";
+import Header_ from "../components/Home/Header";
 
 interface DefaultLayoutProps {
     children: ReactNode

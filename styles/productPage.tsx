@@ -32,6 +32,7 @@ const Description = styled.div`
     width: 300px;
     height: 400px;
     margin-left: 20px;
+    position: relative;
 
     h3 {
         font-size: 15px;
@@ -70,7 +71,8 @@ const AddToCart = styled.button`
     border: 0;
     border-radius: 4px;
     background-color: #115D8C;
-    margin-top: 50%;
+    position: absolute;
+    bottom: 0;
     display: flex;
     align-items: center;
     justify-content: center;

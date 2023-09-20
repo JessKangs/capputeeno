@@ -4,10 +4,10 @@ import {
     Shirts, 
     Mugs, 
     Categories
-  } from '../styles/home'
-  import Pages from '../components/Pages'
+  } from '../../styles/home'
+  import Pages from './Pages'
   import Image from 'next/image'
-  import arrow from "../public/Arrows, Diagrams/Arrow.svg"
+  import arrow from "../../public/Arrows, Diagrams/Arrow.svg"
 
 export default function Buttons_ ({menuSelect, setMenuSelect}) {
   
