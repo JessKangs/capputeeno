@@ -130,6 +130,7 @@ const Order = styled.div`
         height: 34px;
         margin-top: 20px;
         margin-bottom: 100%;
+        cursor: pointer;
     }
 `;
 

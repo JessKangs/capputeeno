@@ -15,9 +15,14 @@ export default function Header_() {
     
     function search() {
         if(data != undefined) {
-            let result = data.allProducts.filter((value) => value.name === searchData)
+            let lowerSearch = searchData.toLowerCase();
+            
+            let result = data.allProducts
+            .filter((value) => value.name.toLowerCase().includes(lowerSearch));
+
             localStorage.setItem("searchByProductName", JSON.stringify(result))
-            router.push("product_name")
+
+            router.push("/product_name")
         }
     }
 

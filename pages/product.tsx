@@ -28,7 +28,8 @@ export default function product () {
     const { loading, error, data } = useQuery(GET_CATEGORIES);
 
     if(data !== undefined) {
-        item = data.allProducts.filter((value, index) => value.id === id)[0]
+        item = data.allProducts
+        .filter((value, index) => value.id === id)[0]
     }
    
     function addCartItem(item) {

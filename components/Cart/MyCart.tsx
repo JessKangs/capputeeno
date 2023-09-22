@@ -15,45 +15,43 @@ export default function MyCart({
     <Cart>
         <Back onClick={() => router.push("/")}>
             <Image src={back} alt="back"/>
-                Voltar
+            Voltar
         </Back>
-            <h2 style={{ fontSize: 18, fontWeight: 400}}>
-                SEU CARRINHO
-            </h2>
+        <h2 style={{ fontSize: 18, fontWeight: 400}}>
+            EU CARRINHO
+        </h2>
 
-            <div style={{ display:"flex", alignItems:"center", height: 30}}>
+        <div style={{ display:"flex", alignItems:"center", height: 30}}>
 
-                <H3> 
-                    Total ({cartItems != 'undefined' ? cartItems.length : 0} produtos)
-                </H3>
+            <H3> Total ({cartItems != 'undefined' ? cartItems.length : 0} produtos) </H3>
 
-                <H4> R${(cartTotal/100).toFixed(2)}</H4>
+            <H4> R${(cartTotal/100).toFixed(2)}</H4>
 
-            </div>
+        </div>
 
-                { cartItems !== undefined ?
+            { cartItems !== undefined ?
 
-                    cartItems.map((item, index) => 
+                cartItems.map((item, index) => 
 
-                        <Item key={index}>
-                            <img src={item.image_url} alt="product image" width={50} height={50}/>
-                            <div>
-                                <h2>
-                                    {item.name}
-                                    <Image style={{ height: 15, width: 15, right: "44%", position:"absolute" }}
-                                    onClick={() => erase(index)}
-                                    src={trashCan} alt=""/>
-                                </h2>
+                    <Item key={index}>
+                        <img src={item.image_url} alt="product image" width={50} height={50}/>
+                        <div>
+                            <h2>
+                                {item.name}
+                                <Image style={{ height: 15, width: 15, right: "44%", position:"absolute", cursor:"pointer"}}
+                                onClick={() => erase(index)}
+                                src={trashCan} alt=""/>
+                            </h2>
                                 
-                                <h3>{item.description}</h3>
-                                <h1>R$ {(item.price_in_cents/100).toFixed(2)}</h1>
-                            </div>
-                        </Item>
+                            <h3>{item.description}</h3>
+                            <h1>R$ {(item.price_in_cents/100).toFixed(2)}</h1>
+                        </div>
+                    </Item>
 
-                    ) 
-                    : 
-                    null    
-                }    
+                ) 
+                : 
+                null    
+            }    
     </Cart>
     )
 }

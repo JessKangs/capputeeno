@@ -10,7 +10,12 @@ import {
   import Image from 'next/image'
   import arrow from "../../public/Arrows, Diagrams/Arrow.svg"
 
-export default function Buttons_ ({menuSelect, setMenuSelect}) {
+export default function Buttons_ ({
+  menuSelect, 
+  setMenuSelect, 
+  setInicial,
+  initial
+}) {
   
     return (
         <Buttons >
@@ -45,7 +50,10 @@ export default function Buttons_ ({menuSelect, setMenuSelect}) {
                 <Image src={arrow} alt="button" />
               </Div>
 
-              <Pages />
+              <Pages 
+                setInicial={setInicial}
+                initial={initial}
+                />
             </Categories>
 
         </Buttons>

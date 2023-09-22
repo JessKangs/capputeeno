@@ -96,17 +96,18 @@ const Layout = styled.div`
     justify-content: space-between;
 `;
 
-const PageNum = styled.div`
+const PageNum = styled.div<{$primary?: number}>`
     display: flex;
     justify-content: center;
     align-items: center;
     width: 28px;
     height: 28px;
     border-radius: 8px;
-    background-color: #E9E9F0;
+    background-color: ${props => props.$primary == 9 ? "red" : "white"};
     font-size: 14px;
     font-family: ${saira.style.fontFamily};
     font-weight: 400;
+    cursor: pointer;
 `;
 
 const Feed = styled.div`
@@ -114,7 +115,7 @@ const Feed = styled.div`
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
+    overflow-x: wrap;
     font-family: ${saira.style.fontFamily};
     
     div {
@@ -122,6 +123,7 @@ const Feed = styled.div`
         height: 275px;
         background-color: #ffffff;
         margin-bottom: 15px;
+        margin-right: 25px;
         border-radius: 8px 8px 0 0;
     }
 

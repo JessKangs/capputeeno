@@ -13,6 +13,7 @@ const Back = styled.div`
     align-items: center;
     font-family: ${saira.style.fontFamily};
     font-size: 14px;
+    cursor: pointer;
     
     img {
         margin-right: 8px;
@@ -76,6 +77,7 @@ const AddToCart = styled.button`
     justify-content: center;
     color: white;
     font-family: ${saira.style.fontFamily};
+    cursor: pointer;
 
     img {
         margin-right: 10px;

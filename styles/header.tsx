@@ -59,6 +59,7 @@ const SearchBar = styled.div`
       z-index: 2;
       position: absolute;
       right: 152px;
+      cursor: pointer;
     }
 `;
 
