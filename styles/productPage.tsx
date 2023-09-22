@@ -11,8 +11,6 @@ const saira = Saira({
 const Back = styled.div`
     display: flex;
     align-items: center;
-    position: fixed;
-    top: 75px;
     font-family: ${saira.style.fontFamily};
     font-size: 14px;
     

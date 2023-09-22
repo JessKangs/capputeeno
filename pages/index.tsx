@@ -4,23 +4,12 @@ import { Feed } from '../styles/home'
 import Buttons_ from '../components/Home/Buttons'
 import Product from '../components/Home/Product'
 import { useState } from 'react'
-import { useQuery, gql } from '@apollo/client'
+import { useQuery } from '@apollo/client'
+import { GET_CATEGORIES } from "../query";
 
 export default function Home() {
   const [menuSelect, setMenuSelect] = useState(1);
-
-  const GET_CATEGORIES = gql`
-    query getProductsByCategory {
-        allProducts{
-            id
-            name
-            image_url
-            description
-            category
-            price_in_cents
-        }
-    }  
-`;
+ 
     let mugsCategory = [];
     let shirtsCategory = [];
     let allProducts = [];

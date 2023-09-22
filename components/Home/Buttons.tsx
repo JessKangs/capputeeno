@@ -3,7 +3,8 @@ import {
     Products, 
     Shirts, 
     Mugs, 
-    Categories
+    Categories,
+    Div
   } from '../../styles/home'
   import Pages from './Pages'
   import Image from 'next/image'
@@ -39,10 +40,10 @@ export default function Buttons_ ({menuSelect, setMenuSelect}) {
             </span>
 
             <Categories>
-              <div>
+              <Div>
                 <h2>Organizar por</h2>
                 <Image src={arrow} alt="button" />
-              </div>
+              </Div>
 
               <Pages />
             </Categories>

@@ -55,10 +55,11 @@ const Mugs = styled.h2<{$primary?: number}>`
 `;
 
 const Categories = styled.div`
-    width: 180px;
+    width: 240px;
     height: 100px;
     display: flex;
     flex-direction: column;
+    margin-right: 20px;
 
     h2 {
         font-family: ${saira.style.fontFamily};
@@ -79,8 +80,16 @@ const Categories = styled.div`
     }
 `;
 
+const Div = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-left: 70px;
+`
+
 const Layout = styled.div`
-    width: 110%;
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -145,7 +154,8 @@ export {
     Buttons, 
     Products, 
     Shirts, 
-    Mugs, 
+    Mugs,
+    Div, 
     Categories,
     Layout,
     PageNum,

@@ -4,8 +4,13 @@ import Image from "next/image"
 import trashCan from "../../public/Trash, Delete, Bin.svg"
 import { Cart, H3, H4, Item } from "../../styles/cart"
 
-export default function MyCart({router, cartItems, cartTotal, erase}) { 
-    console.log(cartItems)
+export default function MyCart({
+    router, 
+    cartItems, 
+    cartTotal, 
+    erase
+}) { 
+    
     return (
     <Cart>
         <Back onClick={() => router.push("/")}>
@@ -19,14 +24,14 @@ export default function MyCart({router, cartItems, cartTotal, erase}) {
             <div style={{ display:"flex", alignItems:"center", height: 30}}>
 
                 <H3> 
-                    Total ({typeof cartItems != 'undefined' ? cartItems.length : 0} produtos)
+                    Total ({cartItems != 'undefined' ? cartItems.length : 0} produtos)
                 </H3>
 
                 <H4> R${(cartTotal/100).toFixed(2)}</H4>
 
             </div>
 
-                { cartItems !== null ?
+                { cartItems !== undefined ?
 
                     cartItems.map((item, index) => 
 
@@ -35,13 +40,13 @@ export default function MyCart({router, cartItems, cartTotal, erase}) {
                             <div>
                                 <h2>
                                     {item.name}
-                                    <Image style={{ height: 15, width: 15, marginLeft: 40, position:"absolute" }}
+                                    <Image style={{ height: 15, width: 15, right: "44%", position:"absolute" }}
                                     onClick={() => erase(index)}
                                     src={trashCan} alt=""/>
                                 </h2>
                                 
                                 <h3>{item.description}</h3>
-                                <h3>{(item.price_in_cents/100).toFixed(2)}</h3>
+                                <h1>R$ {(item.price_in_cents/100).toFixed(2)}</h1>
                             </div>
                         </Item>
 

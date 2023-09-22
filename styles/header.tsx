@@ -16,6 +16,7 @@ const Header = styled.header`
     align-items: center;
     padding: 0 100px 0 100px;
     position: fixed;
+    z-index: 1;
 
     h1 {
       font-family: ${sairaStencilOne.style.fontFamily};

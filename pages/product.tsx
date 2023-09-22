@@ -36,12 +36,18 @@ export default function product () {
 
         if(items ==  undefined) {
             localStorage.setItem("cartItem", JSON.stringify([item]))
+            alert('Item adicionado ao carrinho!')
+            router.push("/")
+            router.push("/cart")
         } else if (items.length >= 1){
+            
             items.map((value, index) => cartItems.push(value))
             cartItems.push(item)
             localStorage.setItem("cartItem", JSON.stringify(cartItems))  
+            alert('Item adicionado ao carrinho!')
+            router.push("/")
+            router.push("/cart")
         } 
-      
     }
 
     return (
@@ -66,7 +72,7 @@ export default function product () {
 
                     <AddToCart onClick={() => {
                         addCartItem(item)
-                        router.push("/cart")
+                        router.push("/")
                         }}>
                         <Image src={shopBag} alt="" />
                         ADICIONAR AO CARRINHO

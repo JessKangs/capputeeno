@@ -4,6 +4,7 @@ import LeftArrow from "../../public/Arrows, Diagrams/LeftArrow.svg";
 import RightArrow from "../../public/Arrows, Diagrams/RightArrow.svg"
 
 export default function Pages () {
+
     return (
         <Layout>
             <PageNum>
@@ -17,6 +18,9 @@ export default function Pages () {
             </PageNum>
             <PageNum>
                 4
+            </PageNum>
+            <PageNum>
+                5
             </PageNum>
             <PageNum>
                 <Image src={LeftArrow} alt=" "/>
